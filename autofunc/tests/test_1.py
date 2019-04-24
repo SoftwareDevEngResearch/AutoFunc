@@ -1,5 +1,5 @@
 
-from get_data import get_data
+from autofunc.get_data import get_data
 import pytest
 import sys
 import os
