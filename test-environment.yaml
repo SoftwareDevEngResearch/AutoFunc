@@ -3,7 +3,7 @@ channels:
 - defaults
 - conda-forge
 dependencies:
-  - python=${PYTHON}
+  - python>=3.6
   - numpy
   - pytest
   - pytest-cov
