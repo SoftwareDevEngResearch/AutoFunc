@@ -1,0 +1,10 @@
+name: test-environment
+channels:
+- defaults
+- conda-forge
+dependencies:
+  - python>=3.6
+  - numpy
+  - pytest
+  - pytest-cov
+  - pandas
