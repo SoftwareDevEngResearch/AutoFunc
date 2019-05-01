@@ -60,5 +60,47 @@ class SimpleCounter:
 
         return comb_sort
 
+    def find_top_thresh(self, threshold):
+
+        comb_sort = self.count_stuff()
+
+        self.threshold = threshold
+
+        # Empty dictionary to collect top percentage of threshold
+        thresh_results = {}
+
+        # Counter to keep track of sum of confidences through the top results
+        so_far = 0
+
+        # Threshold for finding top confidence percentage
+        # threshold = 0.7
+
+        # Counter to keep track of how many function-flows were used to reach sum threshold
+        i = 0
+
+        # Sum confidence values for each CFF
+        for k, v in comb_sort.items():
+
+            while so_far <= self.threshold:
+
+                # Each value is a list of list, iterate through the outer list
+                for vs in v:
+
+                    if so_far <= self.threshold:
+                        # Sum confidence values
+                        so_far += vs[1]
+
+                        # Keep track of list index for appending resulting CFF combinations
+                        i += 1
+
+            # For the results dictionary, append a list of all resulting function-flows that fell within the threshold
+            thresh_results.setdefault(k, []).append(v[0:i])
+
+            # Reset index counter and confidence sum
+            i = 0
+            so_far = 0
+
+        return thresh_results
+
 
 # if __name__ == "__main__":
