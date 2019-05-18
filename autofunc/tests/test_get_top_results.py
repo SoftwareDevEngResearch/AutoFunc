@@ -29,7 +29,7 @@ def test_2():
     conf_results, results = find_associations(store_data,records)
 
     thresh_results = get_top_results(conf_results, 0.7)
-    
+
     assert len(thresh_results['screw'][0]) == 1
 
 
