@@ -39,6 +39,7 @@ def get_top_results(conf_results, threshold = 0.7):
       i = 0
       so_far = 0
 
+
    # # Test for summing confidences
    # conf_sum = 0
    # for k,v in thresh_results.items():
@@ -48,4 +49,12 @@ def get_top_results(conf_results, threshold = 0.7):
    #    # print('{0}: {1}'.format(k,conf_sum))
    #    conf_sum = 0
 
-   return thresh_results
+   return_dict = {}
+
+   for k,v in thresh_results.items():
+
+      return_dict[k] = v[0]
+
+
+
+   return return_dict
