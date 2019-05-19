@@ -16,7 +16,7 @@ def test_1():
 
     thresh_results = get_top_results(conf_results, 0.7)
 
-    assert thresh_results['screw'][0][0][0] == 'couple solid'
+    assert thresh_results['screw'][0][0] == 'couple solid'
 
 
 def test_2():
@@ -30,7 +30,7 @@ def test_2():
 
     thresh_results = get_top_results(conf_results, 0.7)
 
-    assert len(thresh_results['screw'][0]) == 1
+    assert len(thresh_results['screw']) == 1
 
 
 
