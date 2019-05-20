@@ -81,7 +81,5 @@ def match(thresh_results, test_records):
    # Find overall match factor
    match_factor = matched_factor / (unmatched_factor + overmatched_factor)
 
-   print('Match factor = {0:.5f}'.format(match_factor))
-
 
    return learned_dict, matched, overmatched, unmatched, match_factor
