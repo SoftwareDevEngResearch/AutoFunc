@@ -1,5 +1,25 @@
 import itertools
 
+'''
+
+Compares the results learned from data mining with a verification case for which the actual results are known
+and outputs a "Match Factor" based on how well the automation matched the actual results as if they weren't known.
+
+Imports the results of the thresholding as well as the data from the verification case.
+
+The match factor is a ratio of correct to incorrect learning. Correct means a function and flow is learned for a 
+component and that function and flow exist in the verification case for that component.
+
+Incorrect means one of two things. It could be overmatched, in which a function and flow is learned for a component
+that was not in the verification case. Unmatched means a function and flow exists in the verification case for a 
+component that was not learned from the data mining.
+
+The match factor is then the correct matches divided by the sum of the overmatched and unmatched numbers. 
+
+The outputs are the match factor as a number and dictionaries of each case: matched, overmatched, and unmatched. 
+
+'''
+
 def match(thresh_results, test_records):
 
    # store_data, records, test_list, test_case = get_data(learning_file, test_file)

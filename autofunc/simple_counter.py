@@ -1,3 +1,10 @@
+'''
+
+This is a simplified version that counts instances and is numerically equivalent to the confidence metric
+in association rules (# of occurences / total occurences).
+
+'''
+
 import csv
 
 def count_stuff(filename):
