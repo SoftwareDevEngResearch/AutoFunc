@@ -11,7 +11,22 @@ import os
 
 def get_data(file):
 
-    """ Returns pandas data frame and list of csv file"""
+    """
+        Takes a .csv file and exports a Pandas data frame and a list of the information
+
+        Parameters
+        ----------
+        file : string
+            A .csv file of a SQL query
+
+        Returns
+        -------
+        store_data
+            Returns a Pandas  data frame of the data in the .csv file
+        records
+            Returns a list of the data in the .csv file
+
+    """
 
     # Read in dataset
     store_data = pd.read_csv(os.path.expanduser(file), header=None)

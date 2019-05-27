@@ -5,6 +5,11 @@ import os.path
 
 def test_1():
 
+    """
+    Testing that the highest confidence result for the screw component is couple solid, which is what
+    a screw does almost exclusively
+    """
+
     script_dir = os.path.dirname(__file__)
     file1 = os.path.join(script_dir, '../assets/bladeCombined.csv')
 
@@ -16,6 +21,10 @@ def test_1():
 
 
 def test_2():
+
+    """
+    Testing that the results for the component screw have all three factors: support, confidence, lift
+    """
 
     script_dir = os.path.dirname(__file__)
     file1 = os.path.join(script_dir, '../assets/bladeCombined.csv')
