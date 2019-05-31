@@ -1,30 +1,46 @@
 import itertools
 
-'''
-
-Compares the results learned from data mining with a verification case for which the actual results are known
-and outputs a "Match Factor" based on how well the automation matched the actual results as if they weren't known.
-
-Imports the results of the thresholding as well as the data from the verification case.
-
-The match factor is a ratio of correct to incorrect learning. Correct means a function and flow is learned for a 
-component and that function and flow exist in the verification case for that component.
-
-Incorrect means one of two things. It could be overmatched, in which a function and flow is learned for a component
-that was not in the verification case. Unmatched means a function and flow exists in the verification case for a 
-component that was not learned from the data mining.
-
-The match factor is then the correct matches divided by the sum of the overmatched and unmatched numbers. 
-
-The outputs are the match factor as a number and dictionaries of each case: matched, overmatched, and unmatched. 
-
-'''
-
 def match(thresh_results, test_records):
 
-   # store_data, records, test_list, test_case = get_data(learning_file, test_file)
-   # thresh_results = find_top_conf(learning_file, test_file)
+   """
+         Compares the results learned from data mining with a verification case for which the actual results are known
+         and outputs a "Match Factor" based on how well the automation matched the actual results as if they weren't known.
 
+         Imports the results of the thresholding as well as the data from the verification case.
+
+         The match factor is a ratio of correct to incorrect learning. Correct means a function and flow is learned for a
+         component and that function and flow exist in the verification case for that component.
+
+         Incorrect means one of two things. It could be overmatched, in which a function and flow is learned for a component
+         that was not in the verification case. Unmatched means a function and flow exists in the verification case for a
+         component that was not learned from the data mining.
+
+         The match factor is then the correct matches divided by the sum of the overmatched and unmatched numbers.
+
+         The outputs are the match factor as a number and dictionaries of each case: matched, overmatched, and unmatched.
+
+         Parameters
+         ----------
+         thresh_results : dict
+            The results of the "find_top_thresh" function
+         test_records : dict
+            The results of the "get_data" function for the verification test case
+
+         Returns
+         -------
+         learned_dict
+            Returns a dictionary of what was learned from the results of the data mining automation
+         matched
+            A dictionary of the functions and flows that were correctly matched for each component
+         overmatched
+            A dictionary of the functions and flows that were overmatched for each component
+         unmatched
+            A dictionary of the functions and flows that were unmatched for each component
+         match_factor
+            A float of the match factor
+
+
+       """
 
    # Make dictionary of actual CFF combinations from test case
    test_actual = {}
@@ -40,6 +56,7 @@ def match(thresh_results, test_records):
 
       # Make dictionary of list of function-flows for each component
       test_actual.setdefault(e[0], []).append(e[1])
+
 
    # List for keeping track of which function-flows happen for each component
    keep_flows = []

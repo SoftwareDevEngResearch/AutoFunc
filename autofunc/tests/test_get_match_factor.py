@@ -8,6 +8,11 @@ import numpy as np
 
 def test_1():
 
+    """
+    Tests that the match factor for a known learning set and test case is close to the known value
+
+    """
+
     script_dir = os.path.dirname(__file__)
     file1 = os.path.join(script_dir, '../assets/bladeCombined.csv')
 

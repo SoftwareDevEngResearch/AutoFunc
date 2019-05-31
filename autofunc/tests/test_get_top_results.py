@@ -7,6 +7,10 @@ import os.path
 
 def test_1():
 
+    """
+    Tests that the top function-flow combination for the component "screw" is "couple solid"
+    """
+
     script_dir = os.path.dirname(__file__)
     file1 = os.path.join(script_dir, '../assets/bladeCombined.csv')
 
@@ -20,6 +24,10 @@ def test_1():
 
 
 def test_2():
+
+    """
+    Tests that the top 70% of function-flow combinations for the component "screw" only has one result
+    """
 
     script_dir = os.path.dirname(__file__)
     file1 = os.path.join(script_dir, '../assets/bladeCombined.csv')

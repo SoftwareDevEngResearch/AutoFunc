@@ -1,11 +1,23 @@
-
-"""
-
-Use top XX% of results as a threshold for the functions and flows that are associated with each component
-
-"""
-
 def get_top_results(conf_results, threshold = 0.7):
+   """
+
+   Use top XX% of results as a threshold for the functions and flows that are associated with each component.
+   This is used with the results from association rules.
+
+   Parameters
+   ----------
+   conf_results : dict
+      The return dictionary from the "find_associations" function
+   threshold : float
+      The threshold used for finding the top percentage of confidences
+
+   Returns
+   -------
+   return_dict
+      Returns a dictionary of function and flow combinations sorted by confidence that sum up to the threshold.
+      The key is the component and the value is a list of type: [function-flow, confidence]
+
+   """
 
    # Empty dictionary to collect top percentage of threshold
    thresh_results = {}
@@ -39,22 +51,10 @@ def get_top_results(conf_results, threshold = 0.7):
       i = 0
       so_far = 0
 
-
-   # # Test for summing confidences
-   # conf_sum = 0
-   # for k,v in thresh_results.items():
-   #    for vs in v[0]:
-   #       conf_sum += vs[1]
-   #
-   #    # print('{0}: {1}'.format(k,conf_sum))
-   #    conf_sum = 0
-
    return_dict = {}
 
    for k,v in thresh_results.items():
 
       return_dict[k] = v[0]
-
-
 
    return return_dict

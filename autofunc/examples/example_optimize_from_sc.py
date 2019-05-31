@@ -1,5 +1,5 @@
 from autofunc.get_match_factor import match
-from autofunc.simple_counter_opt import count_stuff, find_top_thresh
+from autofunc.simple_counter_opt import count_stuff, find_top_thresh, convert_dict_to_ff_only
 from autofunc.get_data import get_data
 import pandas as pd
 import os.path
@@ -21,6 +21,16 @@ ts = [40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90]
 e = ids[0]
 
 comb_sort, test_comb_sort = count_stuff(file1, e)
+
+threshold = 0.7
+
+thresh_results = find_top_thresh(comb_sort, threshold)
+
+test_results = convert_dict_to_ff_only(test_comb_sort)
+
+learned_dict, matched, overmatched, unmatched, match_factor = match(thresh_results, test_results)
+
+
     #
     # for t in ts:
     #

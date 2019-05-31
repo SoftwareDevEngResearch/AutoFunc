@@ -180,3 +180,42 @@ def find_top_thresh(comb_sort, threshold):
 
 
 
+def convert_dict_to_ff_only(dict):
+
+    """
+        Converts the dictionary of format {'key': [[function-flow 1, percentage1],[function-flow2, percentage2]]}
+
+        Parameters
+        ----------
+        dict : dictionary
+            A dictionary that is returned from the count_stuff function
+
+        Returns
+        -------
+        return_dict
+            Returns a dictionary of format {'key': [function-flow1,function-flow2]}
+
+    """
+
+    # List for keeping track of which function-flows happen for each component
+    keep_flows = []
+
+    # Dictionary for keeping CFF combinations from the learning set
+    learned_dict = {}
+
+    for k, v in dict.items():
+
+        for vs in v:
+            # Append list of all of the function-flows for each component
+            keep_flows.append(vs[0])
+
+        # Save list of function-flows for each component
+        learned_dict[k] = keep_flows
+
+        # Reset list for each component
+        keep_flows = []
+
+    return learned_dict
+
+
+

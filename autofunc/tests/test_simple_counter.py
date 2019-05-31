@@ -4,6 +4,10 @@ import os.path
 
 def test_count_stuff():
 
+    """
+    Tests that the top function-flow combination for the component "screw" is "couple solid"
+    """
+
     script_dir = os.path.dirname(__file__)
     file1 = os.path.join(script_dir, '../assets/bladeCombined.csv')
 
@@ -13,6 +17,10 @@ def test_count_stuff():
 
 
 def test_find_top_thresh():
+
+    """
+    Tests that the top 70% of function-flow combinations for the component "screw" only has one result
+    """
 
     script_dir = os.path.dirname(__file__)
     file2 = os.path.join(script_dir, '../assets/bladeCombined.csv')
