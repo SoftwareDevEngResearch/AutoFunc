@@ -31,6 +31,13 @@ def test_2():
 
     store_data, records = get_data(file1)
 
-    conf_results, results = find_associations(store_data, records)
+    conf_results, results = find_associations(store_data, records, support=0.0003, confidence=0.01, lift=0.1)
 
-    assert len(results['screw']) == 3
+    # assert len(results['screw']) == 3
+
+    return conf_results, results
+
+
+if __name__ == "__main__":
+
+    cr, r = test_2()

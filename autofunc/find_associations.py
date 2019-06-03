@@ -8,7 +8,7 @@ function, and flow in the repository data.
 """
 
 
-def find_associations(store_data, records, support=0.0003, confidence=0.01, lift=1):
+def find_associations(store_data, records, support=0.0003, confidence=0.01, lift=0.1):
 
     """
         Uses apyori library to find association rules using the apriori algorithm within an itemset
