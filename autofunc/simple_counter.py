@@ -85,6 +85,7 @@ def find_top_thresh(comb_sort, threshold):
         comb_sort : dictionary
             A dictionary that is returned from the count_stuff function
         threshold : float
+            Combinations will continue to be added until the sum of probabilities is >= threshold
 
         Returns
         -------
