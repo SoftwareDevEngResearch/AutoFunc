@@ -95,5 +95,3 @@ def find_associations(store_data, records, support=0.0003, confidence=0.01, lift
 
     return conf_results, results
 
-
-# if __name__ == "__main__":
