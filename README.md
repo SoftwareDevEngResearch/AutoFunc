@@ -62,7 +62,7 @@ write_results_from_dict(results, 'test1.csv')
 Run from within examples folder:
 
 ```bash
-python example_get_func_rep
+python example_get_func_rep.py
 ```
 
 And it will generate a file ```test1.csv``` with the results of the autonmated functional representation based on 
