@@ -65,7 +65,7 @@ Run from within examples folder:
 python example_get_func_rep.py
 ```
 
-And it will generate a file ```test1.csv``` with the results of the autonmated functional representation based on 
+And it will generate a file ```test1.csv``` with the results of the automated functional representation based on 
 the example data in the ```assets``` folder.
 
 ## Contributing
