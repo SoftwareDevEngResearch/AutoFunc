@@ -1,4 +1,5 @@
-from autofunc.simple_counter import count_stuff, find_top_thresh
+from autofunc.simple_counter import count_stuff
+from autofunc.get_top_results import get_top_results
 import os.path
 
 
@@ -16,7 +17,7 @@ def test_count_stuff():
     assert comb_sort['screw'][0][0] == 'couple solid'
 
 
-def test_find_top_thresh():
+def test_get_top_results():
 
     """
     Tests that the top 70% of function-flow combinations for the component "screw" only has one result
@@ -28,7 +29,7 @@ def test_find_top_thresh():
     comb_sort = count_stuff(file2)
 
     threshold = 0.7
-    thresh_results = find_top_thresh(comb_sort, threshold)
+    thresh_results = get_top_results(comb_sort, threshold)
 
     assert len(thresh_results['screw']) == 1
 
