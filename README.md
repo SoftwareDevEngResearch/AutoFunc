@@ -3,6 +3,8 @@ Data Mining for Automated Functional Representations
 
 [![Build Status](https://travis-ci.org/AlexMikes/AutoFunc.svg?branch=master)](https://travis-ci.org/AlexMikes/AutoFunc)
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3243689.svg)](https://doi.org/10.5281/zenodo.3243689)
+
 This package automatically generates functional representations for components based on the results of data mining a
 design repository. It was developed for use with the Design Repository house at Oregon State University. A rudimentary 
 web interface can be found here: http://ftest.mime.oregonstate.edu/repo/browse/
