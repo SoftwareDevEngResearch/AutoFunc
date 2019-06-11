@@ -27,6 +27,7 @@ except (ImportError, OSError, IOError):
 
 install_requires = [
     'pandas',
+    'apyori',
 ]
 
 tests_require = [

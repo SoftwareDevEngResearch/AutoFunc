@@ -1,5 +1,6 @@
 from autofunc.get_match_factor import match
-from autofunc.simple_counter import count_stuff, find_top_thresh
+from autofunc.simple_counter import count_stuff
+from autofunc.get_top_results import get_top_results
 from autofunc.get_data import get_data
 import os.path
 
@@ -14,7 +15,7 @@ comb_sort = count_stuff(file1)
 
 # Use a threshold to get the top XX% of confidence values
 threshold = 0.69
-thresh_results = find_top_thresh(comb_sort, threshold)
+thresh_results = get_top_results(comb_sort, threshold)
 
 # Use a known product for verification
 test_file = os.path.join(script_dir, '../assets/jigsawQuery.csv')
