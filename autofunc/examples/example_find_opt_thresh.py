@@ -5,7 +5,7 @@ from autofunc.get_data import get_data
 import os.path
 import matplotlib.pyplot as plt
 
-""" Example showing how to find the match factor using the simple counting file """
+""" Example showing how to find the optimum threshold based on the resulting match factor  """
 
 
 # Dataset used for data mining
@@ -34,16 +34,13 @@ for i in range(10,100,5):
     threshes.append(threshold)
     matches.append(match_factor)
 
-
-    # print('Match factor = {0:.5f}'.format(match_factor))
-
+# Find max match factor and corresponding threshold
 m = max(matches)
 ind = matches.index(m)
 
 opt = threshes[ind]
 
 print('Optimum Threshold = {0:.5f}'.format(opt))
-
 
 plt.plot(threshes, matches)
 plt.xlabel('Threshold')

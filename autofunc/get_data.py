@@ -41,7 +41,3 @@ def get_data(file):
     return store_data, records
 
 
-# if __name__ == "__main__":
-
-
-

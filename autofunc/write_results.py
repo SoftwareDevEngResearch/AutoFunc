@@ -1,6 +1,21 @@
 import csv
 
 def write_results_from_dict(learned_dict, outfile):
+    """
+        Writes a dictionary to a .csv file
+
+        Parameters
+        ----------
+        learned_dict : dict
+            The dictionary to write to a file. Can be the result of find_top_thresh
+        outfile : str
+            The file name and/or path to write the .csv to
+
+        Returns
+        -------
+        None
+
+        """
 
    # Write dictionary to csv file
     with open(outfile, 'w') as csv_file:
@@ -15,12 +30,3 @@ def write_results_from_dict(learned_dict, outfile):
                 else:
                     writer.writerow([key,vs])
 
-
-# def write_results_from_dict(learned_dict, outfile):
-#
-#    # Write dictionary to csv file
-#     with open(outfile, 'w') as csv_file:
-#         writer = csv.writer(csv_file)
-#         for key, value in learned_dict.items():
-#             for vs in value:
-#                 writer.writerow([key,vs])

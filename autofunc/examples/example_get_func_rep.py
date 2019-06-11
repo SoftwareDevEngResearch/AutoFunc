@@ -4,7 +4,7 @@ from autofunc.get_top_results import get_top_results
 from autofunc.write_results import write_results_from_dict
 import os.path
 
-""" Example showing how to automate result finding using simple counting  """
+""" Example showing how to automate functional representation using simple counting  """
 
 
 # Dataset used for data mining
@@ -23,4 +23,6 @@ input_file = os.path.join(script_dir, '../assets/InputExample.csv')
 # Get dictionary of functions and flows for each component based on data mining
 results, unmatched = get_func_rep(thresh_results, input_file, True)
 
-write_results_from_dict(results, 'test2.csv')
+
+# Optional write to file - uncomment and rename to write file
+# write_results_from_dict(results, 'test1.csv')
