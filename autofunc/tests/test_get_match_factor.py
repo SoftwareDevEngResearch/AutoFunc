@@ -8,12 +8,17 @@ import numpy as np
 
 def test_1():
 
+    """
+    Tests that the match factor for a known learning set and test case is close to the known value
+
+    """
+
     script_dir = os.path.dirname(__file__)
     file1 = os.path.join(script_dir, '../assets/bladeCombined.csv')
 
     store_data, records = get_data(file1)
 
-    conf_results, results = find_associations(store_data, records)
+    conf_results, results = find_associations(store_data, records, support=0.0003, confidence=0.01, lift=0.1)
 
     thresh_results = get_top_results(conf_results, 0.7)
 

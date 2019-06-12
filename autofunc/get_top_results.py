@@ -1,60 +1,59 @@
+def get_top_results(conf_results, threshold=0.7):
 
-"""
+    """
+    Use top XX% of results as a threshold for the functions and flows that are associated with each component.
 
-Use top XX% of results as a threshold for the functions and flows that are associated with each component
+    Parameters
+    ----------
+    conf_results : dict
+       The return dictionary from the "find_associations" function
+    threshold : float
+       The threshold used for finding the top percentage of confidences
 
-"""
+    Returns
+    -------
+    return_dict
+       Returns a dictionary of function and flow combinations sorted by confidence that sum up to the threshold.
+       The key is the component and the value is a list of type: [function-flow, confidence]
 
-def get_top_results(conf_results, threshold = 0.7):
+    """
 
-   # Empty dictionary to collect top percentage of threshold
-   thresh_results = {}
+    # Empty dictionary to collect top percentage of threshold
+    thresh_results = {}
 
-   # Counter to keep track of sum of confidences through the top results
-   so_far = 0
+    # Counter to keep track of sum of confidences through the top results
+    so_far = 0
 
-   # Counter to keep track of how many function-flows were used to reach sum threshold
-   i = 0
+    # Counter to keep track of how many function-flows were used to reach sum threshold
+    i = 0
 
-   # Sum confidence values for each CFF
-   for k,v in conf_results.items():
+    # Sum confidence values for each CFF
+    for k,v in conf_results.items():
 
-      while so_far <= threshold:
+        while so_far <= threshold:
 
-         # Each value is a list of list, iterate through the outer list
-         for vs in v:
+            # Each value is a list of list, iterate through the outer list
+            for vs in v:
 
-            if so_far <= threshold:
+                if so_far <= threshold:
 
-               # Sum confidence values
-               so_far += vs[1]
+                    # Sum confidence values
+                    so_far += vs[1]
 
-               # Keep track of list index for appending resulting CFF combinations
-               i += 1
+                    # Keep track of list index for appending resulting CFF combinations
+                    i += 1
 
-      # For the results dictionary, append a list of all resulting function-flows that fell within the threshold
-      thresh_results.setdefault(k, []).append(v[0:i])
+        # For the results dictionary, append a list of all resulting function-flows that fell within the threshold
+        thresh_results.setdefault(k, []).append(v[0:i])
 
-      # Reset index counter and confidence sum
-      i = 0
-      so_far = 0
+        # Reset index counter and confidence sum
+        i = 0
+        so_far = 0
 
+    return_dict = {}
 
-   # # Test for summing confidences
-   # conf_sum = 0
-   # for k,v in thresh_results.items():
-   #    for vs in v[0]:
-   #       conf_sum += vs[1]
-   #
-   #    # print('{0}: {1}'.format(k,conf_sum))
-   #    conf_sum = 0
+    for k,v in thresh_results.items():
 
-   return_dict = {}
+        return_dict[k] = v[0]
 
-   for k,v in thresh_results.items():
-
-      return_dict[k] = v[0]
-
-
-
-   return return_dict
+    return return_dict

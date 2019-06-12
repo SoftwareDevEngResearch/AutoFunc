@@ -1,6 +1,29 @@
+"""
+This is a simplified version to find statistical prevalence that counts instances and is numerically equivalent
+to the confidence metric in association rules (# of occurrences / total occurrences).
+
+"""
+
+
 import csv
 
 def count_stuff(filename):
+
+    """
+        Counts instances and sorts them by prevalence
+
+        Parameters
+        ----------
+        filename : string
+            A .csv file of a SQL query
+
+        Returns
+        -------
+        comb_sort
+            Returns a dictionary of function and flow combinations sorted by prevalence. The key is the
+            component and the value is a list of type: [function-flow, statistical prevalence]
+
+    """
 
     # Combinations of components, functions, and/or flows are stored in a dictionary with the first column
     # as the key and the second column as the value
@@ -52,51 +75,6 @@ def count_stuff(filename):
 
     return comb_sort
 
-def find_top_thresh(comb_sort, threshold):
-
-
-    # Empty dictionary to collect top percentage of threshold
-    thresh_results = {}
-
-    # Counter to keep track of sum of confidences through the top results
-    so_far = 0
-
-    # Threshold for finding top confidence percentage
-    # threshold = 0.7
-
-    # Counter to keep track of how many function-flows were used to reach sum threshold
-    i = 0
-
-    # Sum confidence values for each CFF
-    for k, v in comb_sort.items():
-
-        while so_far <= threshold:
-
-            # Each value is a list of list, iterate through the outer list
-            for vs in v:
-
-                if so_far <= threshold:
-                    # Sum confidence values
-                    so_far += vs[1]
-
-                    # Keep track of list index for appending resulting CFF combinations
-                    i += 1
-
-        # For the results dictionary, append a list of all resulting function-flows that fell within the threshold
-        thresh_results.setdefault(k, []).append(v[0:i])
-
-        # Reset index counter and confidence sum
-        i = 0
-        so_far = 0
-
-
-
-    return_dict = {}
-
-    for k, v in thresh_results.items():
-        return_dict[k] = v[0]
-
-    return return_dict
 
 
 

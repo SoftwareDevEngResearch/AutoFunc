@@ -1,11 +1,7 @@
 
 """
 
-Use psycopg2 to connect to the design repository database and query the desired tables into Python data structures
-
-OR
-
-Import csv queries into Python data structures
+Import csv queries into Pandas Data Frames
 
 """
 
@@ -15,7 +11,22 @@ import os
 
 def get_data(file):
 
-    """ Returns pandas data frame and list of csv file"""
+    """
+        Takes a .csv file and exports a Pandas data frame and a list of the information
+
+        Parameters
+        ----------
+        file : string
+            A .csv file of a SQL query
+
+        Returns
+        -------
+        store_data
+            Returns a Pandas  data frame of the data in the .csv file
+        records
+            Returns a list of the data in the .csv file
+
+    """
 
     # Read in dataset
     store_data = pd.read_csv(os.path.expanduser(file), header=None)
@@ -28,9 +39,5 @@ def get_data(file):
         records.append([str(store_data.values[i, j]) for j in range(len(store_data.columns))])
 
     return store_data, records
-
-
-# if __name__ == "__main__":
-
 
 

@@ -3,10 +3,11 @@
 from codecs import open
 from os import path
 import sys
+from setuptools import setup
 
 here = path.abspath(path.dirname(__file__))
 
-with open(path.join(here, 'autofunc', '_version.py')) as version_file:
+with open(path.join(here, '_version.py')) as version_file:
     exec(version_file.read())
 
 with open(path.join(here, 'README.md')) as readme_file:
@@ -26,6 +27,7 @@ except (ImportError, OSError, IOError):
 
 install_requires = [
     'pandas',
+    'apyori',
 ]
 
 tests_require = [
